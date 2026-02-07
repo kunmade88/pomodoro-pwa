@@ -1,0 +1,9 @@
+{
+  "name": "Pomodoro",
+  "short_name": "Pomodoro",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#111111",
+  "icons": []
+}
