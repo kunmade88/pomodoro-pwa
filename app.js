@@ -98,8 +98,9 @@ function render() {
 }
 
 function buzz() {
-  // vibration (Android works well; iOS may vary)
-  if (navigator.vibrate) navigator.vibrate([120, 60, 120, 60, 300]);
+  if (navigator.vibrate) {
+    navigator.vibrate([300, 200, 300, 200, 300]);
+  }
 }
 
 function beep() {
