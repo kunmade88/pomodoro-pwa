@@ -1,76 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#111111" />
-  <link rel="manifest" href="manifest.webmanifest" />
-  <title>용훈's Pomodoro</title>
-  <style>
-    body { margin:0; font-family: system-ui, -apple-system, Arial; background:#0f172a; color:#e2e8f0; }
-    .wrap { max-width:520px; margin:0 auto; padding:24px; }
-    .card { background:#111827; border:1px solid #1f2937; border-radius:16px; padding:20px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
-    h1 { margin:0 0 10px; font-size:20px; font-weight:700; }
-    .mode { display:flex; gap:8px; flex-wrap:wrap; margin: 12px 0 16px; }
-    .pill { padding:8px 12px; border-radius:999px; border:1px solid #334155; background:#0b1220; color:#cbd5e1; cursor:pointer; }
-    .pill.active { border-color:#22c55e; color:#eafff0; background:#052e1a; }
-    .time { font-size:64px; letter-spacing:1px; text-align:center; margin: 8px 0 16px; font-variant-numeric: tabular-nums; }
-    .row { display:flex; gap:10px; }
-    button { flex:1; padding:12px 14px; border-radius:12px; border:1px solid #334155; background:#0b1220; color:#e2e8f0; cursor:pointer; font-size:16px; }
-    button.primary { border-color:#22c55e; background:#16a34a; color:white; font-weight:700; }
-    button.danger { border-color:#ef4444; background:#7f1d1d; color:#fee2e2; }
-    .settings { margin-top:16px; display:grid; grid-template-columns: 1fr 1fr; gap:10px; }
-    label { font-size:12px; color:#94a3b8; display:block; margin-bottom:6px; }
-    input { width:100%; padding:10px 12px; border-radius:12px; border:1px solid #334155; background:#0b1220; color:#e2e8f0; }
-    .foot { margin-top:12px; font-size:12px; color:#94a3b8; line-height:1.5; }
-    a { color:#93c5fd; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Pomodoro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { transition: background-color 0.5s ease; }
+    </style>
 </head>
-<body>
-  <div class="wrap">
-    <div class="card">
-      <h1>Pomodoro</h1>
-
-      <div class="mode">
-        <div class="pill active" id="mFocus">집중</div>
-        <div class="pill" id="mBreak">휴식</div>
-        <div class="pill" id="mLong">긴휴식</div>
-      </div>
-
-      <div class="time" id="timeText">25:00</div>
-
-      <div class="row">
-        <button class="primary" id="btnStart">시작</button>
-        <button id="btnPause">일시정지</button>
-        <button class="danger" id="btnReset">리셋</button>
-      </div>
-
-      <div class="settings">
-        <div>
-          <label>집중(분)</label>
-          <input type="number" id="setFocus" min="1" max="180" value="25" />
+<body class="bg-rose-50 min-h-screen flex items-center justify-center font-sans" id="body-bg">
+    <div class="text-center">
+        <div class="mb-8 flex justify-center gap-4">
+            <span id="mode-text" class="px-6 py-2 bg-white rounded-full shadow-sm text-rose-600 font-bold">Focus</span>
         </div>
-        <div>
-          <label>휴식(분)</label>
-          <input type="number" id="setBreak" min="1" max="60" value="5" />
-        </div>
-        <div>
-          <label>긴휴식(분)</label>
-          <input type="number" id="setLong" min="1" max="120" value="15" />
-        </div>
-        <div>
-          <label>긴휴식까지 사이클</label>
-          <input type="number" id="setCycles" min="1" max="12" value="4" />
-        </div>
-      </div>
 
-      <div class="foot" id="footNote">
-        • 오늘하루도 화이팅 해보자! <br/>
-        • 부디 편안한 잠자리 꿈을 꾸고 일어나 내일도 하루 꿈꾸는 세상을 살기바란다. by 나태주<br/>
-      </div>
+        <div id="timer" class="text-[10rem] font-black text-gray-800 leading-none mb-12 tracking-tighter">
+            25:00
+        </div>
+
+        <div class="flex justify-center gap-6">
+            <button id="start-btn" class="w-20 h-20 bg-gray-800 text-white rounded-full flex items-center justify-center shadow-xl hover:scale-105 transition-transform">
+                ▶
+            </button>
+            <button id="reset-btn" class="w-20 h-20 bg-white text-gray-400 rounded-full flex items-center justify-center shadow-md hover:text-gray-600 transition-all">
+                ↺
+            </button>
+        </div>
     </div>
-  </div>
-
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
